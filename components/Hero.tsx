@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 const Hero = () => {
   return (
@@ -35,11 +36,11 @@ const Hero = () => {
               </Link>
             </div>
           </div>
-          <img
+          <Image
+            src="/assets/hero.jpeg"
             alt="Hero"
             className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
             height="550"
-            src="/assets/hero.jpeg"
             width="550"
           />
         </div>

@@ -1,4 +1,5 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const HowItWorks = () => {
   return (
@@ -9,7 +10,7 @@ const HowItWorks = () => {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               How it Works
             </h2>
-            <p className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+            <p className="text-gray-500 md:text-xl lg:text-base xl:text-xl dark:text-gray-400">
               Discover the seamless photo editing experience powered by AI.
             </p>
           </div>
@@ -62,36 +63,36 @@ const HowItWorks = () => {
         </div>
         <div className="grid gap-6 lg:gap-8">
           <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
-            <img
+            <Image
+              src="/assets/wall.jpeg"
               alt="Step 1"
               className="aspect-square object-cover rounded-lg"
               height={400}
-              src="/assets/wall.jpeg"
               width={400}
             />
             <ArrowRight className="h-6 w-6 text-gray-500 dark:text-gray-400" />
-            <img
+            <Image
+              src="/assets/wall.jpeg"
               alt="Step 2"
               className="aspect-square object-cover rounded-lg"
               height={400}
-              src="/assets/wall.jpeg"
               width={400}
             />
           </div>
           <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
-            <img
+            <Image
+              src="/assets/wall.jpeg"
               alt="Step 3"
               className="aspect-square object-cover rounded-lg"
               height={400}
-              src="/assets/wall.jpeg"
               width={400}
             />
             <ArrowLeft className="h-6 w-6 text-gray-500 dark:text-gray-400" />
-            <img
+            <Image
+              src="/assets/wall.jpeg"
               alt="Step 4"
               className="aspect-square object-cover rounded-lg"
               height={400}
-              src="/assets/wall.jpeg"
               width={400}
             />
           </div>
