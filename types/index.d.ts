@@ -41,14 +41,14 @@ declare type CreateUserParams = {
   email: string;
   username: string;
   firstName: string | null;
-  lastName: string | null;;
+  lastName: string | null;
   photo: string;
 };
 
 // ====== USER PARAMS
 declare type UpdateUserParams = {
   firstName: string | null;
-  lastName: string | null;;
+  lastName: string | null;
   username: string;
   photo: string;
 };
