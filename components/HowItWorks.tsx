@@ -55,7 +55,7 @@ const HowItWorks = () => {
               <div>
                 <h3 className="font-semibold">Download your masterpiece</h3>
                 <p className="text-gray-500 dark:text-gray-400">
-                  Once you're satisfied, download your enhanced photo.
+                  Once you are satisfied, download your enhanced photo.
                 </p>
               </div>
             </div>
