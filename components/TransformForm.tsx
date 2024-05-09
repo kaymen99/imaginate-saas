@@ -363,7 +363,7 @@ const TransformForm = ({ userId }: { userId: string }) => {
               image={image}
               type={transformationType}
               title={form.getValues().title}
-              transforamtionConfig={transformationConfig}
+              transformationConfig={transformationConfig}
               isTransforming={isTransforming}
               setIsTransforming={setIsTransforming}
             />
