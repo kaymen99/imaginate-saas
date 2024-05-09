@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -25,7 +26,7 @@ import TransformedImage from "@/components/TransformedImage";
 import { debounce, AspectRatioKey, deepMergeObjects } from "@/lib/utils";
 import MediaUploader from "@/components/MediaUploader";
 import { getCldImageUrl } from "next-cloudinary";
-import Link from "next/link";
+import { saveImage } from "@/lib/actions/images.actions";
 
 const FormSchema = z.object({
   type: z.string(),
@@ -36,7 +37,8 @@ const FormSchema = z.object({
   color: z.string().optional(),
 });
 
-const TransformPage = () => {
+const TransformForm = ({ userId }: string) => {
+  const router = useRouter();
   const { toast } = useToast();
   const [image, setImage] = useState<IImage | null>();
   const [isTransforming, setIsTransforming] = useState(false);
@@ -53,7 +55,7 @@ const TransformPage = () => {
     defaultValues: defaultValues,
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
     setIsSubmitting(true);
 
     if (image) {
@@ -63,9 +65,36 @@ const TransformPage = () => {
         src: image?.publicId,
         ...transformationConfig,
       });
-      console.log(transformationUrl);
 
-      form.reset();
+      // save transformation to DB
+      const imageData = {
+        title: data.title,
+        publicId: image?.publicId,
+        transformationType: transformationType,
+        width: image?.width,
+        height: image?.height,
+        config: transformationConfig,
+        secureURL: image?.secureURL,
+        transformationURL: transformationUrl,
+        aspectRatio: data.aspectRatio,
+        prompt: data.prompt,
+        color: data.color,
+      };
+
+      try {
+        const newImage = await saveImage({
+          image: imageData,
+          userId: userId,
+          path: "/",
+        });
+
+        if (newImage) {
+          form.reset();
+          router.push(`/transformation/${newImage._id}`);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     setIsSubmitting(false);
@@ -143,19 +172,7 @@ const TransformPage = () => {
   }, [image, transformationType]);
 
   return (
-    <div className="p-10">
-      <div className="w-full py-24 md:py-18 bg-gradient-to-r from-[#63a1f1] to-[#b6bbc2] rounded-xl">
-        <div className="container px-4 md:px-6 text-center">
-          <div className="max-w-3xl mx-auto space-y-6">
-            <h1 className="text-4xl font-bold text-white sm:text-5xl">
-              Start Editing
-            </h1>
-            <p className="text-lg text-gray-200 md:text-xl lg:text-lg">
-              Choose your transformation and get your new photo.
-            </p>
-          </div>
-        </div>
-      </div>
+    <div className="p-2">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -328,11 +345,10 @@ const TransformPage = () => {
               </Button>
             </div>
           </div>
-          <div className="flex justify-around flex-grow">
+          <div className="flex max-md:flex-col max-md:space-y-10 justify-around flex-grow">
             <CustomField
               control={form.control}
               name="publicId"
-              className="flex items-start"
               render={({ field }) => (
                 <MediaUploader
                   onValueChange={field.onChange}
@@ -358,4 +374,4 @@ const TransformPage = () => {
   );
 };
 
-export default TransformPage;
+export default TransformForm;

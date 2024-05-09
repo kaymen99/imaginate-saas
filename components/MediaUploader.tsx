@@ -57,8 +57,8 @@ const MediaUploader = ({
       onError={onUploadError}
     >
       {({ open }) => (
-        <div className="flex flex-col justify-between sm:w-80">
-          <h2 className="text-lg font-bold">Original Image</h2>
+        <div className="flex flex-col justify-between md:w-80">
+          <h2 className="text-lg font-bold pb-4">Original Image</h2>
           {publicId ? (
             <div className="flex pt-5">
               <CldImage
@@ -71,7 +71,7 @@ const MediaUploader = ({
             </div>
           ) : (
             <div
-              className="flex flex-col items-center pt-24 cursor-pointer"
+              className="flex flex-col justify-center items-center pt-24 pb-24 border bg-blue-100 rounded-md"
               onClick={() => {
                 open();
               }}
@@ -81,7 +81,7 @@ const MediaUploader = ({
                 alt="upload"
                 width={24}
                 height={24}
-                className="pb-[6px]"
+                className="pb-[6px] cursor-pointer"
               />
               <p>Click here to upload your image</p>
             </div>

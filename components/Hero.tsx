@@ -5,16 +5,16 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <section className="w-full">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+      <div className="px-4 md:px-6">
+        <div className="flex flex-col max-md:space-y-6 md:flex-row">
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
                 Elevate Your Photos in{" "}
                 <span className="text-blue-500">1 Click</span>: Experience
                 AI-Powered Editing!
               </h1>
-              <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
+              <p className="max-w-[600px] text-gray-500 text-md md:text-xl dark:text-gray-400">
                 Discover the future of image editing with our AI-powered
                 platform. Easily recolor, resize, and remove objects with a
                 single clic,
@@ -25,8 +25,8 @@ const Hero = () => {
                 Transform your photos into masterpieces hassle-free.
               </p>
             </div>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Link href="/transform">
+            <div className="flex gap-2">
+              <Link href="/transformation/transform">
                 <Button variant="main">Try It Out</Button>
               </Link>
               <Link href="#pricing">
@@ -39,7 +39,7 @@ const Hero = () => {
           <Image
             src="/assets/hero.jpeg"
             alt="Hero"
-            className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
+            className="mx-auto overflow-hidden rounded-xl object-cover w-full order-last aspect-square"
             height="550"
             width="550"
           />

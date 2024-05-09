@@ -1,15 +1,16 @@
+"use client";
+
 import { dataUrl, debounce, download, getImageSize } from "@/lib/utils";
 import { Download } from "lucide-react";
 import { CldImage, getCldImageUrl } from "next-cloudinary";
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
-import React from "react";
 
 const TransformedImage = ({
   image,
   type,
   title,
-  transforamtionConfig,
+  transformationConfig,
   isTransforming,
   setIsTransforming,
 }: TransformImageProps) => {
@@ -22,22 +23,22 @@ const TransformedImage = ({
         width: image?.width,
         height: image?.height,
         src: image?.publicId,
-        ...transforamtionConfig,
+        ...transformationConfig,
       }),
       title
     );
   };
   return (
-    <div className="flex flex-col sm:w-80">
-      <div className="flex justify-between items-center pb-5">
+    <div className="flex flex-col md:w-80">
+      <div className="flex justify-between items-center pb-4">
         <h2 className="text-start text-lg font-bold">Transformed Image</h2>
         <button onClick={downloadHandler}>
           <Download color="blue" />
         </button>
       </div>
 
-      {image?.publicId && transforamtionConfig ? (
-        <div>
+      {image?.publicId && transformationConfig ? (
+        <div className="pt-5">
           <CldImage
             width={getImageSize(type, image, "width")}
             height={getImageSize(type, image, "height")}
@@ -52,7 +53,7 @@ const TransformedImage = ({
                 setIsTransforming && setIsTransforming(false);
               }, 8000)();
             }}
-            {...transforamtionConfig}
+            {...transformationConfig}
           />
 
           {isTransforming && (
@@ -68,7 +69,9 @@ const TransformedImage = ({
           )}
         </div>
       ) : (
-        <p className="text-center pt-16">Your new Image</p>
+        <div className="pt-28 pb-28 border bg-blue-100 rounded-md">
+          <p className="text-center">Your new Image</p>
+        </div>
       )}
     </div>
   );

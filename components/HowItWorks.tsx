@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const HowItWorks = () => {
   return (
-    <section className="w-full py-12 md:py-16 lg:py-22">
+    <section className="w-full">
       <div className="container grid gap-8 px-4 md:px-6 lg:grid-cols-2 lg:gap-12 xl:gap-16">
         <div className="grid gap-6 lg:gap-8">
           <div className="grid gap-2">
@@ -62,7 +62,7 @@ const HowItWorks = () => {
           </div>
         </div>
         <div className="grid gap-6 lg:gap-8">
-          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+          <div className="grid grid-cols-[1fr_auto_1fr] items-center lg:gap-4">
             <Image
               src="/assets/wall.jpeg"
               alt="Step 1"
@@ -79,7 +79,7 @@ const HowItWorks = () => {
               width={400}
             />
           </div>
-          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+          <div className="grid grid-cols-[1fr_auto_1fr] items-center lg:gap-4">
             <Image
               src="/assets/wall.jpeg"
               alt="Step 3"

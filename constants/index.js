@@ -6,8 +6,12 @@ export const navLinks = [
     label: "Home",
   },
   {
-    route: "/transform",
-    label: "Transform",
+    route: "/transformation/transform",
+    label: "Edit",
+  },
+  {
+    route: "/profile",
+    label: "Profile",
   },
   {
     route: "#pricing",
@@ -127,12 +131,14 @@ export const transformationTypes = {
     title: "Restore Image",
     subTitle: "Refine images by removing noise and imperfections",
     config: { restore: true },
+    icon: "image.svg",
   },
   fill: {
     type: "fill",
     title: "Generative Fill",
     subTitle: "Enhance an image's dimensions using AI outpainting",
     config: { fillBackground: true },
+    icon: "camera.svg",
   },
   remove: {
     type: "remove",
@@ -141,6 +147,7 @@ export const transformationTypes = {
     config: {
       remove: { prompt: "", removeShadow: true, multiple: true },
     },
+    icon: "stars.svg",
   },
   recolor: {
     type: "recolor",
@@ -149,6 +156,7 @@ export const transformationTypes = {
     config: {
       recolor: { prompt: "", to: "", multiple: true },
     },
+    icon: "scan.svg",
   },
 };
 

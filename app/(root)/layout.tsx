@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -7,6 +8,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <Navbar />
       <div className="root-container">{children}</div>
       <Toaster />
+      <section className="px-12">
+        <Footer />
+      </section>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import Banner from "@/components/Banner";
-import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
 import Services from "@/components/Services";
@@ -21,9 +20,6 @@ export default function Home() {
       </section>
       <section className="section-padding">
         <Banner />
-      </section>
-      <section className="px-12">
-        <Footer />
       </section>
     </div>
   );

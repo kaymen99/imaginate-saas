@@ -1,3 +1,8 @@
+declare type SearchParamProps = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
 declare type TransformationTypeKey = "restore" | "fill" | "remove" | "recolor";
 
 declare type Transformations = {
@@ -19,23 +24,31 @@ declare type TransformImageProps = {
   image: any;
   type: string;
   title: string;
-  transforamtionConfig: Transformations | null;
+  transformationConfig: Transformations | null;
   isTransforming: boolean;
-  setIsTransforming: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsTransforming?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 declare type IImage = {
-  width?: string;
-  height?: string;
+  _id: string;
+  title: string;
+  transformationType: string;
+  width?: number;
+  height?: number;
   publicId: string;
   config: object;
   aspectRatio?: string;
   color?: string;
   prompt?: string;
+  creator: {
+    _id: string;
+    firstName: string;
+    lastName: string;
+  };
   secureURL: string;
 };
 
-// ====== USER PARAMS
+// USER ACTIONS PARAMS
 declare type CreateUserParams = {
   clerkId: string;
   email: string;
@@ -45,10 +58,65 @@ declare type CreateUserParams = {
   photo: string;
 };
 
-// ====== USER PARAMS
 declare type UpdateUserParams = {
   firstName: string | null;
   lastName: string | null;
   username: string;
   photo: string;
+};
+
+// IMAGE ACTIONS PARAMS
+declare type AddImageParams = {
+  image: {
+    title: string;
+    publicId: string;
+    transformationType: string;
+    width?: number;
+    height?: number;
+    config: any;
+    secureURL?: string;
+    transformationURL: string;
+    aspectRatio: string | undefined;
+    prompt: string | undefined;
+    color: string | undefined;
+  };
+  userId: string;
+  path: string;
+};
+
+declare type UpdateImageParams = {
+  image: {
+    _id: string;
+    title: string;
+    publicId: string;
+    transformationType: string;
+    width?: number;
+    height?: number;
+    config: any;
+    secureURL?: string;
+    transformationURL: string;
+    aspectRatio: string | undefined;
+    prompt: string | undefined;
+    color: string | undefined;
+  };
+  userId: string;
+  path: string;
+};
+
+// URL QUERY PARAMS
+declare type FormUrlQueryParams = {
+  searchParams: string;
+  key: string;
+  value: string | number | null;
+};
+
+declare type UrlQueryParams = {
+  params: string;
+  key: string;
+  value: string | null;
+};
+
+declare type RemoveUrlQueryParams = {
+  searchParams: string;
+  keysToRemove: string[];
 };

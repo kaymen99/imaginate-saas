@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 pb-4">
         <div>
           <Link href="/">
-            <span className="text-3xl font-bold text-gray-900">
+            <span className="text-2xl sm:text-3xl font-bold text-gray-900">
               Imagi<span className="text-blue-500">Nate</span>
             </span>
           </Link>
@@ -93,7 +93,9 @@ const Footer = () => {
           </span>
         </p>
         <div className="mt-4 lg:mt-0 flex space-x-4">
-          <h5 className="font-bold text-lg mb-4">Follow our Socials</h5>
+          <h5 className="font-bold text-md sm:text-lg mb-4">
+            Follow our Socials
+          </h5>
           <BsTwitterX className="h-6 w-6 text-gray-500 hover:text-gray-600" />
           <BsInstagram className="h-6 w-6 text-gray-500 hover:text-gray-600" />
           <BsDribbble className="h-6 w-6 text-gray-500 hover:text-gray-600" />

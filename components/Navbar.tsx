@@ -17,7 +17,7 @@ const Navbar = () => {
     <header className="px-8 py-8 w-full border-b border-gray-300">
       <nav className="flex justify-between items-center">
         <Link href="/">
-          <span className="text-3xl font-bold text-gray-900">
+          <span className="text-2xl sm:text-3xl font-bold text-gray-900">
             Imagi<span className="text-blue-500">Nate</span>
           </span>
         </Link>
@@ -52,7 +52,7 @@ const Navbar = () => {
             </SignedIn>
 
             <SignedOut>
-              <Button variant="main">
+              <Button variant="main" className="max-[430px]:hidden">
                 <Link href="/sign-in" className="font-bold text-lg">
                   SignIn/Login
                 </Link>
@@ -68,7 +68,7 @@ const Navbar = () => {
                   height={32}
                 />
               </SheetTrigger>
-              <SheetContent className="sm:w-64 flex justify-start">
+              <SheetContent className="w-64 flex justify-start">
                 <SheetHeader>
                   <SheetTitle>
                     <Link href="/">
@@ -78,7 +78,7 @@ const Navbar = () => {
                     </Link>
                   </SheetTitle>
                   <SheetDescription>
-                    <ul className="flex flex-col items-start gap-y-6 mt-12">
+                    <ul className="flex flex-col items-start gap-y-6 mt-12 mb-8">
                       {navLinks.map((link) => (
                         <li key={link.route} className="text-lg font-semibold">
                           <Link
@@ -90,6 +90,19 @@ const Navbar = () => {
                         </li>
                       ))}
                     </ul>
+                    <SignedIn>
+                      <UserButton afterSignOutUrl="/" showName />
+                    </SignedIn>
+                    <SignedOut>
+                      <Button
+                        variant="main"
+                        className="hidden max-[430px]:block"
+                      >
+                        <Link href="/sign-in" className="font-bold text-lg">
+                          SignIn/Login
+                        </Link>
+                      </Button>
+                    </SignedOut>
                   </SheetDescription>
                 </SheetHeader>
               </SheetContent>
