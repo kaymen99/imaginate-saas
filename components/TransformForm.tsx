@@ -37,7 +37,7 @@ const FormSchema = z.object({
   color: z.string().optional(),
 });
 
-const TransformForm = ({ userId }: string) => {
+const TransformForm = ({ userId }: { userId: string }) => {
   const router = useRouter();
   const { toast } = useToast();
   const [image, setImage] = useState<IImage | null>();

@@ -8,7 +8,8 @@ const TransformPage = async () => {
   if (!userId) redirect("/sign-in");
 
   // get user from DB
-  const user = await getUser(userId);
+  const { user } = await getUser(userId);
+  const id: string = user._id;
 
   return (
     <div className="p-10 mb-8">
@@ -24,7 +25,7 @@ const TransformPage = async () => {
           </div>
         </div>
       </div>
-      <TransformForm userId={user._id} />
+      <TransformForm userId={id} />
     </div>
   );
 };
