@@ -24,7 +24,7 @@ const TransformPage = async () => {
           </div>
         </div>
       </div>
-      <TransformForm userId={user._id} />
+      <TransformForm userId={user._id} credits={user.creditBalance} />
     </div>
   );
 };

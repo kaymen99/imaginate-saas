@@ -29,6 +29,7 @@ import MediaUploader from "@/components/MediaUploader";
 import { getCldImageUrl } from "next-cloudinary";
 import { saveImage } from "@/lib/actions/images.actions";
 import { updateCredits } from "@/lib/actions/users.actions";
+import { NoCreditModal } from "./NoCreditModal";
 
 const FormSchema = z.object({
   type: z.string(),
@@ -39,7 +40,13 @@ const FormSchema = z.object({
   color: z.string().optional(),
 });
 
-const TransformForm = ({ userId }: { userId: string }) => {
+const TransformForm = ({
+  userId,
+  credits,
+}: {
+  userId: string;
+  credits: number;
+}) => {
   const router = useRouter();
   const { toast } = useToast();
   const [image, setImage] = useState<IImage | null>();
@@ -182,6 +189,7 @@ const TransformForm = ({ userId }: { userId: string }) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col lg:flex-row gap-4 max-lg:space-y-12 mt-28 mb-8"
         >
+          {credits < Math.abs(CREDIT_PER_TRANSFORMATION) && <NoCreditModal />}
           <div className="flex flex-col gap-y-8 w-full lg:w-1/4 border-2 rounded-lg border-slate-500 p-6">
             <CustomField
               control={form.control}
