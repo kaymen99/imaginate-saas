@@ -18,6 +18,7 @@ import { useToast } from "@/components/ui/use-toast";
 import CustomField from "@/components/CustomField";
 import { Input } from "@/components/ui/input";
 import {
+  CREDIT_PER_TRANSFORMATION,
   aspectRatioOptions,
   defaultValues,
   transformationTypes,
@@ -27,6 +28,7 @@ import { debounce, AspectRatioKey, deepMergeObjects } from "@/lib/utils";
 import MediaUploader from "@/components/MediaUploader";
 import { getCldImageUrl } from "next-cloudinary";
 import { saveImage } from "@/lib/actions/images.actions";
+import { updateCredits } from "@/lib/actions/users.actions";
 
 const FormSchema = z.object({
   type: z.string(),
@@ -156,7 +158,9 @@ const TransformForm = ({ userId }: { userId: string }) => {
 
     setNewTransformation(null);
 
-    // startTransition(async () => {});
+    startTransition(async () => {
+      await updateCredits(userId, CREDIT_PER_TRANSFORMATION);
+    });
   };
 
   useEffect(() => {

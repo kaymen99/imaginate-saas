@@ -1,5 +1,7 @@
 import { Brush, Crop, Image, Magnet, Wand } from "lucide-react";
 
+export const CREDIT_PER_TRANSFORMATION = -1;
+
 export const navLinks = [
   {
     route: "/",
@@ -14,7 +16,7 @@ export const navLinks = [
     label: "Profile",
   },
   {
-    route: "#pricing",
+    route: "/credit",
     label: "Pricing",
   },
   {
@@ -56,6 +58,7 @@ export const plans = [
     name: "Free",
     icon: <Image color="white" size={40} />,
     price: 0,
+    credits: 20,
     inclusions: [
       {
         label: "Basic Access to Services",
@@ -80,6 +83,7 @@ export const plans = [
     name: "Pro Package",
     icon: <Image color="white" size={40} />,
     price: 40,
+    credits: 80,
     inclusions: [
       {
         label: "Full Access to Services",
@@ -104,6 +108,7 @@ export const plans = [
     name: "Premium Package",
     icon: <Image color="white" size={40} />,
     price: 199,
+    credits: 180,
     inclusions: [
       {
         label: "Full Access to Services",
