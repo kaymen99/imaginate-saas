@@ -1,5 +1,5 @@
 import { workingSteps } from "@/constants";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const HowItWorks = () => {
@@ -35,7 +35,7 @@ const HowItWorks = () => {
           </div>
         </div>
         <div className="grid gap-6 lg:gap-8">
-          <div className="grid grid-cols-[1fr_auto_1fr] items-center lg:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center lg:gap-4">
             <Image
               src="/assets/step1.png"
               alt="Step 1"
@@ -43,7 +43,10 @@ const HowItWorks = () => {
               height={400}
               width={400}
             />
-            <ArrowRight className="h-6 w-6 text-gray-500 dark:text-gray-400" />
+            <ArrowRight className="h-8 w-8 text-gray-500 dark:text-gray-400 hidden sm:block" />
+            <div className="flex justify-center sm:hidden">
+              <ArrowDown className="h-16 w-16 pt-4 text-gray-500 dark:text-gray-400" />
+            </div>
             <Image
               src="/assets/step2.png"
               alt="Step 2"
@@ -52,7 +55,10 @@ const HowItWorks = () => {
               width={400}
             />
           </div>
-          <div className="grid grid-cols-[1fr_auto_1fr] items-center lg:gap-4">
+          <div className="flex justify-center sm:hidden">
+            <ArrowDown className="h-16 w-16 pt-4 text-gray-500 dark:text-gray-400" />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center lg:gap-4">
             <Image
               src="/assets/step3.png"
               alt="Step 3"
@@ -60,7 +66,10 @@ const HowItWorks = () => {
               height={400}
               width={400}
             />
-            <ArrowLeft className="h-6 w-6 text-gray-500 dark:text-gray-400" />
+            <ArrowLeft className="h-8 w-8 text-gray-500 dark:text-gray-400 hidden sm:block" />
+            <div className="flex justify-center sm:hidden">
+              <ArrowDown className="h-16 w-16 pt-4 text-gray-500 dark:text-gray-400" />
+            </div>
             <Image
               src="/assets/step4.png"
               alt="Step 4"
