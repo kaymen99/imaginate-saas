@@ -15,7 +15,7 @@ const Banner = () => {
           </p>
           <Link
             className="inline-flex items-center justify-center h-12 px-8 rounded-md bg-white font-bold text-lg transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#6366F1]"
-            href="#"
+            href="/transformation/transform"
           >
             Try it Now
           </Link>

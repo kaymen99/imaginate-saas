@@ -1,3 +1,4 @@
+import { workingSteps } from "@/constants";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
@@ -15,83 +16,55 @@ const HowItWorks = () => {
             </p>
           </div>
           <div className="grid gap-6">
-            <div className="grid grid-cols-[auto_1fr] items-center gap-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 text-gray-50 dark:bg-gray-50 dark:text-gray-900">
-                1
+            {workingSteps.map((step, index) => (
+              <div
+                key={index}
+                className="grid grid-cols-[auto_1fr] items-center gap-4"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 text-gray-50 dark:bg-gray-50 dark:text-gray-900">
+                  {index + 1}
+                </div>
+                <div>
+                  <h3 className="font-semibold">{step.title}</h3>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    {step.description}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold">Upload your photo</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Start by uploading your image to our secure platform.
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-[auto_1fr] items-center gap-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 text-gray-50 dark:bg-gray-50 dark:text-gray-900">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold">Let our AI work its magic</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Our advanced AI algorithms analyze and enhance your photo.
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-[auto_1fr] items-center gap-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 text-gray-50 dark:bg-gray-50 dark:text-gray-900">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold">Review and refine</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Customize the edits and fine-tune the results to your liking.
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-[auto_1fr] items-center gap-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 text-gray-50 dark:bg-gray-50 dark:text-gray-900">
-                4
-              </div>
-              <div>
-                <h3 className="font-semibold">Download your masterpiece</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Once you are satisfied, download your enhanced photo.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         <div className="grid gap-6 lg:gap-8">
           <div className="grid grid-cols-[1fr_auto_1fr] items-center lg:gap-4">
             <Image
-              src="/assets/wall.jpeg"
+              src="/assets/step1.png"
               alt="Step 1"
-              className="aspect-square object-cover rounded-lg"
+              className="aspect-square object-cover rounded-lg shadow-lg dark:shadow-none"
               height={400}
               width={400}
             />
             <ArrowRight className="h-6 w-6 text-gray-500 dark:text-gray-400" />
             <Image
-              src="/assets/wall.jpeg"
+              src="/assets/step2.png"
               alt="Step 2"
-              className="aspect-square object-cover rounded-lg"
+              className="aspect-square object-cover rounded-lg shadow-lg dark:shadow-none"
               height={400}
               width={400}
             />
           </div>
           <div className="grid grid-cols-[1fr_auto_1fr] items-center lg:gap-4">
             <Image
-              src="/assets/wall.jpeg"
+              src="/assets/step3.png"
               alt="Step 3"
-              className="aspect-square object-cover rounded-lg"
+              className="aspect-square object-cover rounded-lg shadow-lg dark:shadow-none"
               height={400}
               width={400}
             />
             <ArrowLeft className="h-6 w-6 text-gray-500 dark:text-gray-400" />
             <Image
-              src="/assets/wall.jpeg"
+              src="/assets/step4.png"
               alt="Step 4"
-              className="aspect-square object-cover rounded-lg"
+              className="aspect-square object-cover rounded-lg shadow-lg dark:shadow-none"
               height={400}
               width={400}
             />

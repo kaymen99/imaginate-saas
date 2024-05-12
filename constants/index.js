@@ -52,6 +52,28 @@ export const services = [
   },
 ];
 
+export const workingSteps = [
+  {
+    title: "Upload your photo",
+    description: "Start by uploading your image or choose one from the web.",
+  },
+  {
+    title: "Choose Your transfomation",
+    description:
+      "Pick you preferred image transformation, you can enhance, resize, recolor or remove objects.",
+  },
+  {
+    title: "Let our AI work its magic",
+    description:
+      "From here our AI models we'll handle the editing for you, just wait for it!!!",
+  },
+  {
+    title: "Download your masterpiece",
+    description:
+      "Download your transformed photo, and you'll have it saved for you in your profile.",
+  },
+];
+
 export const plans = [
   {
     _id: 1,

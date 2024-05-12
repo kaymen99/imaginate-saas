@@ -38,7 +38,7 @@ const TransformedImage = ({
       </div>
 
       {image?.publicId && transformationConfig ? (
-        <div className="pt-5">
+        <div className="relative pt-5">
           <CldImage
             width={getImageSize(type, image, "width")}
             height={getImageSize(type, image, "height")}

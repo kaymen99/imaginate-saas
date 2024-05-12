@@ -15,14 +15,14 @@ const TransformationPage = async ({ params: { id } }: SearchParamProps) => {
       <div className="w-full py-24 md:py-18 bg-gradient-to-r from-[#63a1f1] to-[#b6bbc2] rounded-xl">
         <div className="container px-4 md:px-6 text-center">
           <div className="max-w-3xl mx-auto space-y-6">
-            <h1 className="text-4xl font-bold text-white sm:text-5xl">
+            <h1 className="text-3xl sm:text-5xl font-bold text-white">
               Transformation Page
             </h1>
           </div>
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row p-10 gap-4 max-lg:space-y-12 mb-8">
-        <div className="max-h-[24rem] flex flex-col gap-y-4 w-full lg:w-1/4 border-2 rounded-lg border-slate-500 p-6 lg:mt-20">
+      <div className="flex flex-col lg:flex-row pt-8 gap-4 max-lg:space-y-12 mb-8">
+        <div className="flex flex-col gap-y-4 sm:max-h-[24rem] w-full lg:w-1/4 border-2 rounded-lg border-slate-500 p-6 lg:mt-20">
           <h1 className="text-xl text-center font-bold pb-5">
             Your transformation
           </h1>

@@ -86,7 +86,7 @@
     @apply bg-background text-foreground;
   }
   .section-padding {
-    @apply px-8 sm:px-12 py-12 sm:py-16;
+    @apply px-8 sm:px-12 py-12 sm:py-14;
   }
 }
 
